@@ -1,7 +1,7 @@
 package wren;
 
 import wren.WrenVM;
-import wren.WrenValue;
+import wren.WrenHandle;
 
 @:keep
 @:include('linc_wren.h')
@@ -24,13 +24,13 @@ extern class Wren {
     static function interpret(vm:WrenVM, source:String) : WrenInterpretResult;
 
     @:native('wrenMakeCallHandle')
-    static function makeCallHandle(vm:WrenVM, signature:String) : WrenValue;
+    static function makeCallHandle(vm:WrenVM, signature:String) : WrenHandle;
 
     @:native('wrenCall')
-    static function call(vm:WrenVM, method:WrenValue) : WrenInterpretResult;
+    static function call(vm:WrenVM, method:WrenHandle) : WrenInterpretResult;
 
-    @:native('wrenReleaseValue')
-    static function releaseValue(vm:WrenVM, value:WrenValue) : Void;
+    @:native('wrenReleaseHandle')
+    static function releaseHandle(vm:WrenVM, value:WrenHandle) : Void;
 
     @:native('wrenGetSlotCount')
     static function getSlotCount(vm:WrenVM) : Int;
@@ -56,8 +56,8 @@ extern class Wren {
     @:native('linc::wren::getSlotString')
     static function getSlotString(vm:WrenVM, slot:Int) : String;
 
-    @:native('wrenGetSlotValue')
-    static function getSlotValue(vm:WrenVM, slot:Int) : WrenValue;
+    @:native('wrenGetSlotHandle')
+    static function getSlotHandle(vm:WrenVM, slot:Int) : WrenHandle;
 
     @:native('wrenSetSlotBool')
     static function setSlotBool(vm:WrenVM, slot:Int, value:Bool) : Void;
@@ -80,8 +80,8 @@ extern class Wren {
     @:native('wrenSetSlotString')
     static function setSlotString(vm:WrenVM, slot:Int, text:String) : Void;
 
-    @:native('wrenSetSlotValue')
-    static function setSlotValue(vm:WrenVM, slot:Int, value:WrenValue) : Void;
+    @:native('wrenSetSlotHandle')
+    static function setSlotHandle(vm:WrenVM, slot:Int, value:WrenHandle) : Void;
 
     @:native('wrenInsertInList')
     static function insertInList(vm:WrenVM, listSlot:Int, index:Int, elementSlot:Int) : Void;
