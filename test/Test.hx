@@ -2,9 +2,12 @@ import wren.Wren;
 import wren.WrenVM;
 import wren.WrenHandle;
 
+
 class Test {
 
+
 	static function main() {
+
 		var vm:WrenVM = Wren.newVM();
 
 		var file:String = sys.io.File.getContent("script.wren");
@@ -37,6 +40,8 @@ class Test {
 		Wren.releaseHandle(vm, one);
 
 		Wren.freeVM(vm);
+		
 	}
+
 
 }

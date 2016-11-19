@@ -1,3 +1,4 @@
+-lib linc_wren
 -main Test.hx
 -cpp cpp/
 -cp ../
@@ -12,6 +13,3 @@
 
 #-D HXCPP_M64
 #-D HXCPP_M32
-
-#-cmd ./cpp/Test
-#-cmd ./cpp/Test.exe

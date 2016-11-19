@@ -1,4 +1,7 @@
+
+
 class Call {
+
 	static noParams {
 		System.print("noParams")
 	}
@@ -10,4 +13,6 @@ class Call {
 	static one(one) {
 		System.print("one %(one)")
 	}
+
 }
+

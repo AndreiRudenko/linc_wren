@@ -1,7 +1,9 @@
 package wren;
 
+
 import wren.WrenVM;
 import wren.WrenHandle;
+
 
 @:keep
 @:include('linc_wren.h')
@@ -10,6 +12,7 @@ import wren.WrenHandle;
 @:build(linc.Linc.xml('wren'))
 #end
 extern class Wren {
+
 
 	@:native('linc::wren::newVM')
 	static function newVM(?config:WrenConfiguration) : WrenVM;
@@ -98,13 +101,16 @@ extern class Wren {
 	@:native('wrenAbortFiber')
 	static function abortFiber(vm:WrenVM, slot:Int) : Void;
 	
+
 } //Wren
+
 
 typedef WrenConfiguration = {
 	@:optional var initialHeapSize : UInt;
 	@:optional var minHeapSize : UInt;
 	@:optional var heapGrowthPercent : Int;
 } //WrenConfiguration
+
 
 @:enum
 abstract WrenInterpretResult(Int)
@@ -113,6 +119,7 @@ from Int to Int {
 	var WREN_RESULT_COMPILE_ERROR  = 1;
 	var WREN_RESULT_RUNTIME_ERROR  = 2;
 } //WrenInterpretResult
+
 
 @:enum
 abstract WrenType(Int)
